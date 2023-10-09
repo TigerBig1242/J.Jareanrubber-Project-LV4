@@ -1,0 +1,314 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai+Looped:wght@500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'IBM Plex Sans Thai Loop', sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #FEFFDE;
+}
+
+.container {
+    /* margin: 100px auto; */
+    width: 100%;
+    height: 500px;
+    /* text-align: center; */
+}
+
+input[type="date"]::-webkit-datetime-edit,
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-clear-button {
+    color: #fff;
+    position: relative;
+}
+
+input[type="date"]::-webkit-datetime-edit-year-field {
+    position: absolute !important;
+    border-left: 1px solid #8c8c8c;
+    padding: 2px;
+    color: red;
+    left: 56px;
+}
+
+input[type="date"]::-webkit-datetime-edit-month-field {
+    position: absolute !important;
+    border-left: 1px solid #8c8c8c;
+    padding: 2px;
+    color: red;
+    left: 26px;
+}
+
+input[type="date"]::-webkit-datetime-edit-day-field {
+    position: absolute !important;
+    color: red;
+    padding: 2px;
+    left: 4px;
+}
+
+table {
+    width: 100%;
+    margin-top: 50px;
+    background: #DDFFBC;
+    /* margin-bottom: 20px; */
+}
+
+table, table tr, table th, table td {
+    border-collapse: collapse;
+    border: none;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+}
+
+table, table thead tr th {
+    color: #333;
+    padding: 30px 20px;
+}
+
+table tr:nth-child(odd) td {
+    background: #C9F4AA;
+}
+
+table, table thead th, table tbody {
+    border-radius: 10px;
+    padding: 30px 25px;
+    font-size: 18px;
+}
+
+.report {
+    background: #91C788;
+    border-radius: 10px;
+}
+
+.table-total {
+    text-align: center;
+    justify-content: center;
+}
+
+    /* Pagination */
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    padding: 10px 40px;
+}
+    
+ul {
+    margin: 20px 30px;
+}
+    
+ul li.pagination-page {
+    display: inline-block;
+    margin: 0 10px;
+    background: #fff;
+    background-image: linear-gradient(#ff4568, #ff4568);
+    background-repeat: no-repeat;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 45px;
+    cursor: pointer;
+}
+
+.btnPrev, .btnNext {
+    display: inline-flex;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 250;
+    color: #383838;
+    background: transparent;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+    
+.btnPrev img {
+    width: 20px;
+    margin-right: 15px;
+}
+
+.btnNext img {
+    width: 20px;
+    margin-left: 15px;
+    transform: rotate(180deg);
+}
+
+.btn-pagination {
+    width: 25px;
+    height: 25px;
+    border-radius: 50px;
+    background: #000;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.number-pagination {
+    width: 25px;
+    height: 25px;
+    border-radius: 50px;
+    background: #f2f2f2;
+    color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+.active-pagination {
+    background: #FF2B56;
+    color: #fff;
+}
+
+.select-type {
+    width: 100%;
+    height: 100px;
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+.dropdownSelectType {
+    width: 50%;
+    padding: 10px;
+    border-radius: 10px;
+    background: #f2f2f2;
+    outline: none;
+    border: none;
+}
+
+.checkDetail {
+    display: flex;
+    justify-content: flex-end;
+    /* width: 230px; */
+    width: 100%;
+    /* margin-left: 85%; */
+}
+
+.reportbysaletype a {
+    width: 170px;
+    height: 60px;
+    background: #7DCE13;
+    color: #333;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+    margin-right: 10px;
+    text-decoration: none;
+}
+
+.btnReportBySellOnPromise a {
+    width: 260px;
+    height: 60px;
+    background: #EAE509;
+    color: #333;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+    margin-left: 10px;
+    text-decoration: none;
+}
+
+.btnReportByConfirm a {
+    width: 210px;
+    height: 60px;
+    background: #64CCC5;
+    color: #333;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+    margin-left: 10px;
+    text-decoration: none;
+}
+
+.btnReportByCancel a {
+    width: 170px;
+    height: 60px;
+    background: #A0C49D;
+    color: #333;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+    margin-left: 10px;
+    text-decoration: none;
+}
+
+.btnReportByMonth a {
+    width: 140px;
+    height: 60px;
+    background: #96C291;
+    color: #333;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+    margin-left: 10px;
+    text-decoration: none;
+}
+
+.reportbyrankproduct a {
+    width: 150px;
+    height: 60px;
+    background: #6499E9;
+    color: #333;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+    margin-left: 10px;
+    text-decoration: none;
+}
+
+.btnReportByListAmountHight a {
+    width: 200px;
+    height: 60px;
+    background: #96C291;
+    color: #333;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+    margin-left: 10px;
+    text-decoration: none;
+}
+
+/* a {
+    text-decoration: none;
+} */
+
+.title {
+    margin-top: 25px;
+}

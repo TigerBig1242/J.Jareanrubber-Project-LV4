@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
+    
+    <!-- Import css -->
+    <link rel="stylesheet" href="../CSS/offer-sale-reserve.css">
+    <!-- <link rel="stylesheet" href="../CSS/test.css"> -->
+
+    <title>OfferSale</title>
+</head>
+<body>
+
+    <!-- Jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+
+    <!-- Sweetalert2 -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- Import javascript -->
+    <script src="../Javascript/offer-sale.js"></script>
+    
+    <!-- Navbar -->
+    <nav>
+        <ul class="menu">
+          <li><a href="../src/offer-sale.html">ประวัติการประมูล</a></li>
+          <li><a href="../src/profile-agent.html">Profile</a></li>
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <div class="form-detail">
+            <h2>ประวัติการประมูล</h2>
+            <div class="btn-create" onclick="open_modal_create()">
+                เสนอขาย
+            </div>
+            <div class="btn-logout" onclick="logout()">
+                Logout
+            </div>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th class="order">ลำดับ</th>
+                    <th>จำนวนที่เสนอ</th>
+                    <th>ราคาที่เสนอ</th>
+                    <th>จำนวนวันที่กรีด</th>
+                    <th>เกรดยางก้อน</th>
+                    <th>สถานะ</th>
+                    <th>ชื่อตัวแทนกลุ่ม</th>
+                    <th>วันที่</th>
+                </tr>
+            </thead>
+            <tbody id="tbody">
+                <!-- <tr>
+                    <td>1</td>
+                    <td>150 กิโลกรัม</td>
+                    <td>25.59 บาท</td>
+                </tr> -->
+            </tbody>
+        </table>
+        
+        <div id="pagination" class="pagination">
+
+        </div>
+       
+    </div>
+
+            <!-- Create modal -->
+        <div class="modal" id="modal_create">
+            <div class="modal-bg" onclick="close_modal()"></div>
+                <div class="modal-card">
+                    <h2>เสนอขายยางก้อน</h2>
+                    <div class="form-control">
+                        <span>จำนวนที่เสนอ</span>
+                        <input type="number" id="input_amount" class="input-amount" placeholder="ระบุจำนวน" onkeyup="clearBorder(this)">
+                    </div>
+                    <div class="form-control">
+                        <span>ราคาที่เสนอ</span>
+                        <input type="number" id="input_price" class="input-price" placeholder="ระบุราคา" onkeyup="clearBorder(this)">
+                    </div>
+                    <div class="form-control-numday">
+                       <div class="dropdown" id="dropdown">
+                            <span>จำนวนวันที่กรีดยาง</span>
+                            <select name="numDay" id="numDay" class="numDay" onkeyup="clearBorder(this)">
+                                <option value="">เลือกจำนวนวันกรีดยาง</option>
+                                <!-- <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option> -->
+                            </select>
+
+                            <span>เกรดยางก้อน</span>
+                            <select name="level-grad" id="level-grad" class="level-grad" onkeyup="clearBorder(this)">
+                                <option value="">เลือกเกรดยางก้อน</option>
+                                <!-- <option value="A">A</option>
+                                <option value="B">B</option>
+                                <option value="C">C</option> -->
+                            </select>
+                        </div>
+
+                    <div class="form-submit">
+                        <div class="btn-confirm" onclick="confirm_offer()">ตกลง</div>
+                    </div>       
+                </div>
+
+        </div>
+        
+</body>
+</html>

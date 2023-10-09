@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice</title>
+
+    <link rel="stylesheet" href="../CSS/invoice.css">
+</head>
+<body>
+    <!-- Jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    
+    <!-- Import Javascript   -->
+    <script type="" src="../Javascript/employee-confirm.js"></script>
+    <script src="../Javascript/invoice.js"></script>
+
+  <!-- Sweetalert2 -->
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <div class="container">
+        <div class="invoice-detail">
+            <h3>หจก. จ.เจริญรับเบอร์</h3>
+            <h4>รวมบิลเงินสด</h4>
+            <div class="detail" id="detail">
+                <!-- <span>ชื่อพนักงาน:</span>
+                <span>ชื่อตัวแทนกลุ่ม:</span>
+                <span>เอกสารเลขที่:</span>
+                <span>วันที่:</span>  -->
+            </div>
+        </div>
+
+        <div class="content">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ลำดับ</th>
+                        <th>จำนวน</th>
+                        <th>จำนวนวัน</th>
+                        <th>เกรด</th>
+                        <th>ราคา</th>
+                    </tr>
+                </thead>
+                <tbody id="invoice">
+                    <!-- <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                         <td class="total">รวม</td>
+                    </tr> -->
+                </tbody>
+                <!-- <tr>
+                    <td class="list-item">รายการ</td>
+                </tr> -->
+                <tr>
+                    <td class="total">รวม</td>
+                </tr>
+            </table>
+        </div>
+  </div>
+</body>
+</html>

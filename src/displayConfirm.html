@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DisplayConfirmOrder</title> 
+    
+    <!-- Import CSS -->
+     <link rel="stylesheet" href="../CSS/displayConfirm.css"/>
+         
+     <!-- Jquery -->
+     <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+   
+     <!-- Import Javascript   -->
+     <script type="" src="../Javascript/displayConfirm.js"></script>
+
+   <!-- Sweetalert2 -->
+   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <nav>     
+        <ul class="menu">
+          <li><a href="../src/employee-confirm.html">จัดการซื้อขาย</a></li>
+          <li><a href="../src/profile-admin.html">Profile</a></li>
+          <li><a href="../src/info-agent.html">ข้อมูลตัวแทนกลุ่ม</a></li>
+          <li><a href="../src/get-data-material.html">เพิ่มข้อมูลยางก้อน</a></li>
+          <li><a href="../src/payment.html">จ่ายเงิน</a></li>
+          <li><a href="../src/paymented.html">จ่ายเงินแล้ว</a></li>
+        </ul>
+      </nav>
+
+      <div class="container">
+
+        <!-- <nav>
+          <ul class="menu">
+            <li><a href="#!">Home</a></li>
+            <li><a href="#!">About</a></li>
+            <li><a href="#!">Contact</a></li>
+            <li><a href="#!">Faq</a></li>
+          </ul>
+        </nav> -->
+  
+        <div class="title">
+          <h2>จัดการรายการอนุมัติ</h2>
+        </div>
+  
+        <table>
+          <thead>
+            <tr>
+              <th class="order">ลำดับ</th>
+              <th>จำนวนที่เสนอ</th>
+              <th>ราคาที่เสนอ</th>
+              <th>จำนวนวันที่กรีด</th>
+              <th>เกรดยางก้อน</th>
+              <th>สถานะ</th>
+              <th>ชื่อตัวแทนกลุ่ม</th>
+              <th>ชื่อพนักงาน</th>
+              <th>วันที่</th>
+          </tr>
+          </thead>
+          <tbody id="tbody" class="content">
+            
+          </tbody>
+        </table>
+  
+        <div id="pagination" class="pagination">
+          <!-- <button class="btnPrev"> <img src="../assets/image/arrow.png" alt=""> Prev</button>
+          <ul>
+            <li class="pagination-page">1</li>
+          </ul>
+          <button class="btnNext">Next <img src="../assets/image/arrow.png" alt=""> </button> -->
+  
+        </div>
+  
+      </div>
+    
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="../CSS/report2.css">
+</head>
+<body>
+    <!-- Jquery -->
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.js" integrity="sha512-8Z5++K1rB3U+USaLKG6oO8uWWBhdYsM3hmdirnOEWp8h2B1aOikj5zBzlXs8QOrvY9OxEnD2QDkbSKKpfqcIWw==" crossorigin="anonymous"></script> -->
+    
+    <!-- Import Javascript   -->
+    <script type="" src="../Javascript/report2Copy.js"></script>
+
+    <!-- Sweetalert2 -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/js/bootstrap-datepicker.min.js" integrity="sha512-LsnSViqQyaXpD4mBBdRYeP6sRwJiJveh2ZIbW41EBrNmKxgr/LFZIiWT6yr+nycvhvauz8c2nYMhrP80YhG7Cw==" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/css/bootstrap-datepicker.min.css" integrity="sha512-34s5cpvaNG3BknEWSuOncX28vz97bRI59UnVtEEpFX536A7BtZSJHsDyFoCl8S7Dt2TPzcrCEoHBGeM4SUBDBw==" crossorigin="anonymous"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/locales/bootstrap-datepicker.th.min.js" integrity="sha512-cp+S0Bkyv7xKBSbmjJR0K7va0cor7vHYhETzm2Jy//ZTQDUvugH/byC4eWuTii9o5HN9msulx2zqhEXWau20Dg==" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/plugin/utc.js"></script>
+    <script>dayjs.extend(window.dayjs_plugin_utc)</script>
+    
+    <div class="container">
+        <div class="row">
+            <div class="title">
+                <h2>รายงานขายยางแผ่น</h2>
+            </div>
+            <div class="col-md-1"></div>
+             <div class="col-md-10">
+             <br>
+                    <form>
+                        <div class="row g-9">
+                            <div class="col-auto">
+                                <label class="col-form-label">เริ่มต้น</label>
+                            </div>
+                            <div class="col-auto datepicker">
+                                <!-- ใน value สร้างเงื่อนไขตรวจสอบถ้ามีการส่ง $_GET มาถึงจะแสดงค่าที่เคยเลือก ถ้าไม่มีจะแสดง 2021-08-06-->
+                                <input type="text" name="start_date" id="dateStart" class="form-control" placeholder="เลือกวันเริ่มต้น" required value="">
+                            </div>
+                            <div class="col-auto">
+                                <label class="col-form-label">ถึง</label>
+                            </div>
+                            <div class="col-auto">
+                                <!-- ใน value สร้างเงื่อนไขตรวจสอบถ้ามีการส่ง $_GET มาถึงจะแสดงค่าที่เคยเลือก ถ้าไม่มีจะแสดง 2021-10-30-->
+                                <input type="text" name="end_date" id="dateEnd" placeholder="เลือกวันสิ้นสุด"  class="form-control" required value="">
+                            </div>
+                        </div> 
+
+                        <div class="select-type">
+                            <!-- <p>เลือกประเภท</p>
+                            <select name="selectType" id="selectType" class="dropdownSelectType" onclick="">
+                                <option value="">เลือกประเภท</option>
+                                <option value="">ขายสด</option>
+                                <option value="">สัญญาซื้อขายล่วงหน้า</option>
+                            </select> -->
+                        </div>
+                    </form>
+                    <div class="col-auto">
+                        <button  class="btn btn-primary" onclick="getDataOrder()">ค้นหาข้อมูล</button>
+                        <!-- <button  class="btn btn-danger" onclick="clearList()">เคลียร์ข้อมูล</button> -->
+                        <!-- <a href="../API/getDataOrder.php" class="btn btn-warning">เคลียร์ข้อมูล</a> -->
+                    </div>
+                    </div>
+                </div>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ลำดับ</th>
+                            <th>หมายเลขออร์เดอร์</th>
+                            <th>จำนวนสินค้า</th>
+                            <th>ราคา</th>
+                            <th>เกรดสินค้า</th>
+                            <th>ขายแบบ</th>
+                            <th>ระยะเวลาขนส่ง</th>
+                            <th>วันที่</th>
+                        </tr>
+                    </thead>
+                    <tbody  id="report" class="report">
+                        <!-- <tr>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>6</td>
+                            <td>7</td>
+                        </tr> -->
+                    </tbody>
+                </table>
+
+                <div class="checkDetail">
+                    <div class="reportbysaletype" id="reportbysaletype.html"><a href="./reportbysaletypeCopy2.html" class="showConfirm">รายงานประเภทการขาย</a></div>
+                    <!-- <div class="btnReportBySellOnPromise" id="btnReportBySellOnPromise"><a href="./reportbysellonpromise.html" class="showConfirm">รายงานขายโดยสัญญาซื้อขายล่วงหน้า</a></div> -->
+                    <div class="btnReportByConfirm" id="btnReportByConfirm"><a href="./reportstatusoffer.html" class="showConfirm">รายงานรายการอนุมัติ/ไม่อนุมัติ</a></div>
+                    <!-- <div class="btnReportByCancel" id="btnReportByCancel"><a href="./reportbylistcancel.html" class="showConfirm">รายงานรายการไม่อนุมัติ</a></div> -->
+                    <div class="btnReportByMonth" id="btnReportByMonth"><a href="./reportbymonthTH.html" class="showConfirm">รายงานตามเดือน</a></div>
+                    <div class="reportbyrankproduct" id="btnReportByMonth"><a href="./reportbyrankproduct.html" class="showConfirm">รายงานอันดับโปรดัก</a></div>
+                    <!-- <div class="btnReportByListAmountHight" id="btnReportByListAmountHight"><a href="./reportbylistamounthight.html" class="showConfirm">รายงานรายการยอดขายสูงสุด</a></div> -->
+                </div>
+                
+                <div id="pagination" class="pagination">
+                    <!-- <button class="btnPrev"> <img src="../assets/image/arrow.png" alt=""> Prev</button>
+                    <ul>
+                      <li class="pagination-page">1</li>
+                    </ul>
+                    <button class="btnNext">Next <img src="../assets/image/arrow.png" alt=""> </button> -->         
+                </div>
+            </div>
+
+</body>
+</html>

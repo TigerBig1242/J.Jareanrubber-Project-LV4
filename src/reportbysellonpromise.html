@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReportBySellOnPromise</title>
+
+    <!-- Import CSS -->
+    <link rel="stylesheet" href="../CSS/displayConfirm.css"/>
+</head>
+<body>
+     <!-- Jquery -->
+     <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+     <!-- <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script> -->
+    
+     <!-- Import Javascript   -->
+    <script type="" src="../Javascript/reportbysellonpromise.js"></script>
+
+    <!-- Sweetalert2 -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/js/bootstrap-datepicker.min.js" integrity="sha512-LsnSViqQyaXpD4mBBdRYeP6sRwJiJveh2ZIbW41EBrNmKxgr/LFZIiWT6yr+nycvhvauz8c2nYMhrP80YhG7Cw==" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/css/bootstrap-datepicker.min.css" integrity="sha512-34s5cpvaNG3BknEWSuOncX28vz97bRI59UnVtEEpFX536A7BtZSJHsDyFoCl8S7Dt2TPzcrCEoHBGeM4SUBDBw==" crossorigin="anonymous"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/locales/bootstrap-datepicker.th.min.js" integrity="sha512-cp+S0Bkyv7xKBSbmjJR0K7va0cor7vHYhETzm2Jy//ZTQDUvugH/byC4eWuTii9o5HN9msulx2zqhEXWau20Dg==" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/plugin/utc.js"></script>
+    <script>dayjs.extend(window.dayjs_plugin_utc)</script>
+    <!-- <h1>Welcome</h1> -->
+
+    <div class="container">
+        <div class="title">
+            <h2>รายงานขายโดยสัญญาซื้อขายล่วงหน้า</h2>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>ลำดับ</th>
+                    <th>หมายเลขออร์เดอร์</th>
+                    <th>ไอดีสินค้า</th>
+                    <th>จำนวนสินค้า</th>
+                    <th>เกรดสินค้า</th>
+                    <th>ขายแบบ</th>
+                    <th>ระยะเวลาขนส่ง</th>
+                    <th>วันที่</th>
+                </tr>
+            </thead>
+            <tbody  id="report" class="report">
+                <!-- <tr>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>5</td>
+                    <td>6</td>
+                    <td>7</td>
+                </tr> -->
+            </tbody>
+        </table>
+
+        <div id="pagination" class="pagination">
+            <!-- <button class="btnPrev"> <img src="../assets/image/arrow.png" alt=""> Prev</button>
+            <ul>
+              <li class="pagination-page">1</li>
+            </ul>
+            <button class="btnNext">Next <img src="../assets/image/arrow.png" alt=""> </button> -->   
+        </div>
+
+    </div>
+</body>
+</html>
