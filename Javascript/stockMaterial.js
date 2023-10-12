@@ -3,6 +3,7 @@ $(document).ready(function() {
 })
 
 function getStockMaterial() {
+    let showNameUser = '';
     $.ajax({
         type: 'get',
         url: '../API/getStockMaterial.php',
@@ -24,6 +25,10 @@ function getStockMaterial() {
                     `;
                 }
                 $("#tbody").html(renderStockMaterial);
+                showNameUser += `
+                <p>ชื่อผู้ใช้: ${localStorage.fullname}</p>
+                `;
+                $("#nameUser").html(showNameUser);
             }
         },
         error: function(err) {

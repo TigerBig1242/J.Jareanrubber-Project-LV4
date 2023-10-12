@@ -312,3 +312,16 @@ ul li.pagination-page {
 .title {
     margin-top: 25px;
 }
+
+ /* NameUser */
+ .nameUser {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    text-align: center;
+    margin: -10px -60px;
+    color: #000;
+    font-size: 1.5rem;
+    margin-top: 30px;
+}

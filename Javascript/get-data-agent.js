@@ -52,6 +52,7 @@ function getProfileImage() {
 function getDataAgent() {
     // let infoData = "";
     let renderHTML = "";
+    let showNameUser = '';
     $.ajax({
         type: 'get',
         url: '../API/get-data-agent.php',
@@ -95,6 +96,10 @@ function getDataAgent() {
                 paginationHTML += `<button class="btnNext" onclick = "nextPage()">Next <img src="../assets/image/arrow.png" alt=""> </button>`;
                 $("#pagination").html(paginationHTML);                                          
                     }
+                    showNameUser += `
+                        <p>ชื่อผู้ใช้: ${localStorage.fullname}</p>
+                        `;
+                        $("#nameUser").html(showNameUser);
                 },
                 error: function(error) {
                     console.log("Error", error);

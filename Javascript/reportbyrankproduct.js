@@ -1,6 +1,15 @@
 $(document).ready(function() {
     // getTypeSale();
+    render();
 });
+
+function render() {
+    let showNameUser = '';
+    showNameUser += `
+    <p>ชื่อผู้ใช้: ${localStorage.fullname}</p>
+    `;
+    $("#nameUser").html(showNameUser);
+}
 
 function getDataOffer() {
     let count = 1;

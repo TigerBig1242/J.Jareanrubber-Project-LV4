@@ -30,6 +30,9 @@
     
     <div class="container">
         <div class="row">
+            <div class="nameUser" id="nameUser">
+                <!-- <p>User</p> -->
+            </div>
             <div class="title">
                 <h2>รายงานรายการอนุมัติ/ไม่อนุมัติ</h2>
             </div>
@@ -57,8 +60,8 @@
                         <div class="selectStatusOffer" id="selectStatusOffer">
                             <p>เลือกประเภทการขาย</p>
                             <select type="text" name="reportBySaleType" id="reportBySaleType" class="reportBySaleType" onchange="renderReportBySaleType()">
-                                <!-- <option value="">เลือกประเภทการขาย</option>
-                                <option value="">ขายสด</option>
+                                <option value="" selected="selected">เลือกประเภทการขาย</option>
+                                <!-- <option value="">ขายสด</option>
                                 <option value="">สัญญาซื้อขายล่วงหน้า</option> -->
                             </select>
                 
@@ -101,6 +104,7 @@
                     <thead>
                         <tr>
                             <th>ลำดับ</th>
+                            <th>วันที่</th>
                             <th>หมายเลขออร์เดอร์</th>
                             <th>จำนวนสินค้า</th>
                             <th>ราคาสินค้า</th>
@@ -108,7 +112,6 @@
                             <th>เกรดสินค้า</th>
                             <th>ขายแบบ</th>
                             <th>รวม</th>
-                            <th>วันที่</th>
                         </tr>
                     </thead>
                     <tbody  id="report" class="report">

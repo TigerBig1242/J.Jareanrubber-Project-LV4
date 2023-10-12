@@ -1,6 +1,7 @@
 
 $(document).ready(function() {
     render();
+    renderss();
     // material()
     // dropdown();
     $("#page1").addClass("active-pagination");
@@ -30,12 +31,21 @@ $(document).ready(function() {
     ;
 });
 
+function renderss() {
+    let showNameUser = '';
+    showNameUser += `
+    <p>ชื่อผู้ใช้: ${localStorage.fullname}</p>
+    `;
+    $("#nameUser").html(showNameUser);
+}
+
 var data;
 var page = 1;
 var totalPage = 0;
 // Create function render when into offer sale page 
 var html = "";
 function render() {
+    let showNameUser = '';
     $.ajax({
         type: 'post',
         url: '../API/get-data-offer-sale.php',
@@ -51,13 +61,12 @@ function render() {
                     html += `
                     <tr>
                         <td>${i+1}</td>
+                        <td>${response.Result[i].date}</td>
                         <td>${new Intl.NumberFormat().format(response.Result[i].amount)} ตัน</td>
                         <td>${response.Result[i].price} บาท</td>
                         <td>${response.Result[i].numDay} วัน</td>
                         <td>เกรด ${response.Result[i].matGrad}</td>
                         <td>${response.Result[i].status}</td>
-                        <td>${response.Result[i].name}</td>
-                        <td>${response.Result[i].date}</td>
                     </tr>
                     `;
                     }

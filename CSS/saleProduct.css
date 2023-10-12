@@ -165,4 +165,16 @@ body {
     margin-top: 15px;
 }
 
+ /* NameUser */
+ .nameUser {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    text-align: center;
+    margin: -10px -60px;
+    color: #000;
+    font-size: 1.5rem;
+}
+
 

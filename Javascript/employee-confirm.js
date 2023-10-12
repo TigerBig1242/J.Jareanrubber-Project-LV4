@@ -51,6 +51,13 @@ function render() {
   const idEmp = localStorage.ID;
   console.log(idEmp);
 
+  let showNameUser = '';
+  const nameUser = localStorage.fullname;
+  console.log(nameUser);
+  showNameUser += `
+    <p>ชื่อผู้ใช้: ${localStorage.fullname}</p>
+  `;
+  $("#nameUser").html(showNameUser);
   let listID = {};
   $.ajax({
     type: "post",
@@ -75,14 +82,13 @@ function render() {
           html += `
                     <tr>
                         <td><input type = "checkbox" class = "checkbox" id = "checkbox${data[i].id}" onclick = "" value = "${data[i].id}""> ${i + 1} </td>
+                        <td>${data[i].date}</td>
                         <td>${new Intl.NumberFormat().format(data[i].amount)} ตัน</td>
                         <td>${data[i].price} บาท</td>
                         <td>${data[i].numDay} วัน</td>
                         <td>เกรด ${data[i].grad}</td>
-                        <td>${data[i].status}</td>
                         <td>${data[i].name}</td>
-                        <td>${localStorage.fullname}</td>
-                        <td>${data[i].date}</td>
+                        <td>${data[i].status}</td>
                         <td>
                           <div class="btn-control">
                               <div onclick="confirmOffer(${data[i].id}), getStockMaterial(${data[i].id})" class="btn-confirm" id="btnConfirm">ซื้อ</div>

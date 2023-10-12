@@ -1,3 +1,6 @@
+$(document).ready(function() {
+    render();
+})
 function convertDateThai(date, report) {
     let month_TH = ["มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤษจิกายน", "ธันวาคม",];
 
@@ -132,3 +135,12 @@ function monthTH(month) {
     });
 }
 monthTH();
+
+function render() {
+    let showNameUser = '';
+    showNameUser += `
+    <p>ชื่อผู้ใช้: ${localStorage.fullname}</p>
+    `;
+    $("#nameUser").html(showNameUser);
+}
+// render();

@@ -1,7 +1,16 @@
 $(document).ready(function() {
     // getTypeSale();
     dateStart();
+    render();
 });
+
+function render() {
+    let showNameUser = '';
+    showNameUser += `
+    <p>ชื่อผู้ใช้: ${localStorage.fullname}</p>
+    `;
+    $("#nameUser").html(showNameUser);
+}
 
 function getTypeSale() {
     let dataTypeSale;
@@ -77,6 +86,7 @@ function renderReportBySaleType(typeSaleID) {
                         renderDataOrder += `
                         <<tr>
                             <td>${[i + 1]}</td>
+                            <td>${dayjs(dataOrder[i].date).format('DD/MM/YYYY')}</td>
                             <td>${dataOrder[i].no_orderProduct}</td>
                             <td>${numberWithCommas(dataOrder[i].amountProduct)}</td>
                             <td>${dataOrder[i].price}</td>
@@ -84,7 +94,6 @@ function renderReportBySaleType(typeSaleID) {
                             <td>${dataOrder[i].levelProduct}</td>
                             <td>${dataOrder[i].typeSale}</td>
                             <td>${numberWithCommas(dataOrder[i].total)}</td>
-                            <td>${dayjs(dataOrder[i].date).format('DD/MM/YYYY')}</td>
                             <td></td>
                             <td></td>
                             <td></td>
@@ -99,14 +108,14 @@ function renderReportBySaleType(typeSaleID) {
                         renderDataOrder += `
                         <<tr>
                             <td>${[i + 1]}</td>
+                            <td>${dayjs(dataOrder[i].date).format('DD/MM/YYYY')}</td>
                             <td>${dataOrder[i].no_orderProduct}</td>
-                            <td>${dataOrder[i].amountProduct}</td>
+                            <td>${numberWithCommas(dataOrder[i].amountProduct)}</td>
                             <td>${dataOrder[i].price}</td>
                             <td>${dataOrder[i].shippingTime}</td>
                             <td>${dataOrder[i].levelProduct}</td>
                             <td>${dataOrder[i].typeSale}</td>
                             <td>${numberWithCommas(dataOrder[i].total)}</td>
-                            <td>${dayjs(dataOrder[i].date).format('DD/MM/YYYY')}</td>
                         </tr>
                     `;
                         let result1 = "ขายสด";
@@ -233,12 +242,13 @@ function getDataOrder() {
           let count = 1;
           let sum = 0;
           for(let i = 0 ; i < data.length; i++) {
-                // if(typeSaleID === data[i].typeSale) {
+                if(typeSaleID === data[i].typeSale) {
                     total += data[i].amountProduct * count;
                     sum += data[i].total * count;
                     renderDataOrder += `
                     <tr>
                         <td>${[i + 1]}</td>
+                        <td>${dayjs(data[i].date).format('DD/MM/YYYY')}</td>
                         <td>${data[i].no_orderProduct}</td>
                         <td>${new Intl.NumberFormat().format(data[i].amountProduct)}</td>
                         <td>${new Intl.NumberFormat().format(data[i].price)}</td>
@@ -246,30 +256,32 @@ function getDataOrder() {
                         <td>${data[i].levelProduct}</td>
                         <td>${data[i].typeSale}</td>
                         <td>${new Intl.NumberFormat().format(data[i].total)}</td>
-                        <td>${dayjs(data[i].date).format('DD/MM/YYYY')}</td>
                         <td></td>
                         <td></td>
                         <td></td>
                     </tr>
                     `;
-                // }
-                // else if(typeSaleID === data[i].typeSale) {
-                //     total += data[i].amountProduct * count;
-                //     sum += data[i].total * count;
-                //     renderDataOrder += `
-                //     <tr>
-                //         <td>${[i + 1]}</td>
-                //         <td>${data[i].no_orderProduct}</td>
-                //         <td>${new Intl.NumberFormat().format(data[i].amountProduct)}</td>
-                //         <td>${new Intl.NumberFormat().format(data[i].price)}</td>
-                //         <td>${data[i].shippingTime}</td>
-                //         <td>${data[i].levelProduct}</td>
-                //         <td>${data[i].typeSale}</td>
-                //         <td>${new Intl.NumberFormat().format(data[i].total)}</td>
-                //         <td>${dayjs(data[i].date).format('DD/MM/YYYY')}</td>
-                //     </tr>
-                //     `;
-                // }
+                }
+                else if(typeSaleID === data[i].typeSale) {
+                    total += data[i].amountProduct * count;
+                    sum += data[i].total * count;
+                    renderDataOrder += `
+                    <tr>
+                        <td>${[i + 1]}</td>
+                        <td>${dayjs(data[i].date).format('DD/MM/YYYY')}</td>
+                        <td>${data[i].no_orderProduct}</td>
+                        <td>${new Intl.NumberFormat().format(data[i].amountProduct)}</td>
+                        <td>${new Intl.NumberFormat().format(data[i].price)}</td>
+                        <td>${data[i].shippingTime}</td>
+                        <td>${data[i].levelProduct}</td>
+                        <td>${data[i].typeSale}</td>
+                        <td>${new Intl.NumberFormat().format(data[i].total)}</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    `;
+                }
               }
               renderDataOrder += `
                   <tr class="table-total">
@@ -277,6 +289,7 @@ function getDataOrder() {
                     <td>รวมจำนวนสินค้า</td>
                     <td>${numberWithCommas(total)}</td>
                     <td>กืโลกรัม</td>
+                    <td></td>
                     <td></td>
                     <td></td>
                     <td></td>

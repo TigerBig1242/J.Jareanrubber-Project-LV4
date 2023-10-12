@@ -26,7 +26,7 @@ body {
   justify-content: flex-start;
   text-align: center;
   margin: -10px 0;
-  color: #777;
+  color: #000;
 }
 
 table {
@@ -357,4 +357,16 @@ a {
   border-radius: 20px;
   width: 15px;
   height: 15px;
+}
+
+ /* NameUser */
+ .nameUser {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  text-align: center;
+  margin: -10px -60px;
+  color: #000;
+  font-size: 1.5rem;
 }

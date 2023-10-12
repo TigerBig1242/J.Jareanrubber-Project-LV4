@@ -1,7 +1,8 @@
  // Add data material
  function getDataMaterial() {
   let renderData;
-
+  let showNameUser = '';
+  
   $.ajax({
     type: "post",
     url: "../API/get-data-material.php",
@@ -18,6 +19,10 @@
         `;
       }
       $("#materialContent").html(renderData);
+      showNameUser += `
+        <p>ชื่อผู้ใช้: ${localStorage.fullname}</p>
+        `;
+        $("#nameUser").html(showNameUser);
     }, error: function(err) {
       console.log("Error", err);
     } 

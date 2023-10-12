@@ -3,6 +3,7 @@ $(document).ready(function(){
   dateStart();
   // getDataOrder();
   // selectTypeSale();
+  render();
 })
 
 function dateStart() {
@@ -22,9 +23,19 @@ function dateStart() {
   })
 }
 
+function render() {
+  let showNameUser = '';
+  showNameUser += `
+  <p>ชื่อผู้ใช้: ${localStorage.fullname}</p>
+  `;
+  $("#nameUser").html(showNameUser);
+}
+// render();
+
 let data = [];
 
 function getDataOrder() {
+  // let showNameUser = '';
   // selectTypeSale();
   let beginDate = document.getElementById("dateStart").value; 
   let endDate = document.getElementById("dateEnd").value;
@@ -92,6 +103,10 @@ function getDataOrder() {
 
       }
       $("#report").html(renderDataOrder);   
+      // showNameUser += `
+      //       <p>ชื่อผู้ใช้: ${localStorage.fullname}</p>
+      //       `;
+      //       $("#nameUser").html(showNameUser);
             
     },
     error: function(err) {

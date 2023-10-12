@@ -1,7 +1,16 @@
 $(document).ready(function() {
     // getTypeSale();
     dateStart();
+    render();
 });
+
+function render() {
+    let showNameUser = '';
+    showNameUser += `
+    <p>ชื่อผู้ใช้: ${localStorage.fullname}</p>
+    `;
+    $("#nameUser").html(showNameUser);
+}
 
 function getDataOffer() {
     let count = 1;
@@ -23,18 +32,18 @@ function getDataOffer() {
             console.log(dataOffer);
             if(response.ResponseCode === 200) {
                 for(let i = 0; i < dataOffer.length; i++) {
-                    // total += dataOffer[i].amount * count;
+                    total += dataOffer[i].amount * count;
                     if(status === dataOffer[i].status) {
                         total += dataOffer[i].amount * count;
                         renderDataOffer += `
                             <<tr>
                                 <td>${[i + 1]}</td>
+                                <td>${dayjs(dataOffer[i].date).format('DD/MM/YYYY')}</td>
                                 <td>${numberWithCommas(dataOffer[i].amount)}</td>
                                 <td>${numberWithCommas(dataOffer[i].price)}</td>
                                 <td>${dataOffer[i].status}</td>
                                 <td>${dataOffer[i].num_day}</td>
                                 <td>${dataOffer[i].mat_grad}</td>
-                                <td>${dayjs(dataOffer[i].date).format('DD/MM/YYYY')}</td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
@@ -47,12 +56,12 @@ function getDataOffer() {
                         renderDataOffer += `
                             <<tr>
                                 <td>${[i + 1]}</td>
+                                <td>${dayjs(dataOffer[i].date).format('DD/MM/YYYY')}</td>
                                 <td>${numberWithCommas(dataOffer[i].amount)}</td>
                                 <td>${numberWithCommas(dataOffer[i].price)}</td>
                                 <td>${dataOffer[i].status}</td>
                                 <td>${dataOffer[i].num_day}</td>
                                 <td>${dataOffer[i].mat_grad}</td>
-                                <td>${dayjs(dataOffer[i].date).format('DD/MM/YYYY')}</td>
 
                             </tr>
                         `;
@@ -128,36 +137,36 @@ function getDataOrder() {
           let count = 1;
           let sum = 0;
           for(let i = 0 ; i < data.length; i++) {
-                // if(statusOffer === data[i].status) {
+                if(statusOffer === data[i].status) {
                     total += data[i].amount * count;
                     // sum += data[i].total * count;
                     renderDataOrder += `
                     <tr>
                         <td>${[i + 1]}</td>
+                        <td>${dayjs(data[i].date).format('DD/MM/YYYY')}</td>
                         <td>${new Intl.NumberFormat().format(data[i].amount)}</td>
                         <td>${new Intl.NumberFormat().format(data[i].price)}</td>
                         <td>${data[i].status}</td>
                         <td>${data[i].num_day}</td>
                         <td>${data[i].mat_grad}</td>
-                        <td>${dayjs(data[i].date).format('DD/MM/YYYY')}</td>
                     </tr>
                     `;
-                // }
-                // else if(statusOffer === data[i].status) {
-                //     total += data[i].amount * count;
-                //     // sum += data[i].total * count;
-                //     renderDataOrder += `
-                //     <tr>
-                //         <td>${[i + 1]}</td>
-                //         <td>${new Intl.NumberFormat().format(data[i].amount)}</td>
-                //         <td>${new Intl.NumberFormat().format(data[i].price)}</td>
-                //         <td>${data[i].status}</td>
-                //         <td>${data[i].num_day}</td>
-                //         <td>${data[i].mat_grad}</td>
-                //         <td>${dayjs(data[i].date).format('DD/MM/YYYY')}</td>
-                //     </tr>
-                //     `;
-                // }
+                }
+                else if(statusOffer === data[i].status) {
+                    total += data[i].amount * count;
+                    // sum += data[i].total * count;
+                    renderDataOrder += `
+                    <tr>
+                        <td>${[i + 1]}</td>
+                        <td>${dayjs(data[i].date).format('DD/MM/YYYY')}</td>
+                        <td>${new Intl.NumberFormat().format(data[i].amount)}</td>
+                        <td>${new Intl.NumberFormat().format(data[i].price)}</td>
+                        <td>${data[i].status}</td>
+                        <td>${data[i].num_day}</td>
+                        <td>${data[i].mat_grad}</td>
+                    </tr>
+                    `;
+                }
               }
               renderDataOrder += `
                   <tr class="table-total">
@@ -222,6 +231,7 @@ function renderReportBySaleType(typeSaleID) {
                         renderDataOrder += `
                         <<tr>
                             <td>${[i + 1]}</td>
+                            <td>${dataOrder[i].date}</td>
                             <td>${dataOrder[i].no_orderProduct}</td>
                             <td>${dataOrder[i].amountProduct}</td>
                             <td>${dataOrder[i].price}</td>
@@ -229,16 +239,16 @@ function renderReportBySaleType(typeSaleID) {
                             <td>${dataOrder[i].levelProduct}</td>
                             <td>${dataOrder[i].typeSale}</td>
                             <td>${numberWithCommas(dataOrder[i].total)}</td>
-                            <td>${dataOrder[i].date}</td>
                         </tr>
                     `;
-                        let result = "สัญญาซื้อขายล่วงหน้า";
+                        let result = "อนุมัติ";
                         console.log(dataOrder[i].typeSale);
                     }
                     else if(typeSaleID === dataOrder[i].typeSale){
                         renderDataOrder += `
                         <<tr>
-
+                            <td>${[i + 1]}</td>
+                            <td>${dataOrder[i].date}</td>
                             <td>${dataOrder[i].no_orderProduct}</td>
                             <td>${dataOrder[i].amountProduct}</td>
                             <td>${dataOrder[i].price}</td>
@@ -246,10 +256,9 @@ function renderReportBySaleType(typeSaleID) {
                             <td>${dataOrder[i].levelProduct}</td>
                             <td>${dataOrder[i].typeSale}</td>
                             <td>${numberWithCommas(dataOrder[i].total)}</td>
-                            <td>${dataOrder[i].date}</td>
                         </tr>
                     `;
-                        let result1 = "ขายสด";
+                        let result1 = "ไม่อนุมัติ";
                         console.log(dataOrder[i].typeSale);
                     }
 

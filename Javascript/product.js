@@ -1,3 +1,6 @@
+$(document).ready(function() {
+    render();
+})
 function recordProduct() {
     let amountProduct = document.getElementById("inputNumProduct");
     let gradProduct = document.getElementById("inputGradProduct");
@@ -33,6 +36,15 @@ function recordProduct() {
         }
     });
 }
+
+function render() {
+    let showNameUser = '';
+    showNameUser += `
+    <p>ชื่อผู้ใช้: ${localStorage.fullname}</p>
+    `;
+    $("#nameUser").html(showNameUser);
+}
+// render();
 
 // Open modal
 function openModal() {

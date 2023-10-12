@@ -3,6 +3,7 @@ var page = 1;
 var totalPage = 0;
 
 function render() {
+  let showNameUser = '';
     $.ajax({
       type: "post",
       url: "../API/displayCancel.php",
@@ -22,14 +23,12 @@ function render() {
             html += `
                       <tr>
                           <td>${[i + 1]}</td>
+                          <td>${data[i].date}</td>
                           <td>${new Intl.NumberFormat().format(data[i].amount)} ตัน</td>
                           <td>${data[i].price} บาท</td>
                           <td>${data[i].numDay} วัน</td>
                           <td>เกรด ${data[i].matGrad}</td>
-                          <td>${data[i].status}</td>
                           <td>${data[i].name}</td>
-                          <td>${localStorage.fullname}</td>
-                          <td>${data[i].date}</td>
                           <td>
                             <div class="btn-control">
                                 
@@ -49,6 +48,11 @@ function render() {
           }
           paginationHTML += `<button class="btnNext" onclick = "nextPage()">Next <img src="../assets/image/arrow.png" alt=""> </button>`;
           $("#pagination").html(paginationHTML);
+
+          showNameUser += `
+            <p>ชื่อผู้ใช้: ${localStorage.fullname}</p>
+            `;
+            $("#nameUser").html(showNameUser);
   
           // $("#pagination").html(paginationHTML);
           // render();
